@@ -18,7 +18,7 @@ head = Label(win,text='Login page')
 head.pack(side='top')
 body = Label(win,text='Welcome to siddhartha Bus travel',font='Rockwell 12').place(x=150,y=40)
 #adding text in login page
-Pkone_Number = Label(win,text='Phone Number',bg='black',fg='white').place(x=100,y=100)
+Phone_Number = Label(win,text='Phone Number',bg='black',fg='white').place(x=100,y=100)
 e1=Entry(win).place(x=200,y=100)
 Password= Label(win,text='Password',bg='black',fg='white').place(x=100,y=150)
 e2=Entry(win).place(x=200,y=150)
