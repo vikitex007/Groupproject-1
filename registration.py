@@ -29,7 +29,7 @@ frame_login = Frame(win,bg='#E7E7E7')
 frame_login.place(x=30,y=80,height=600,width=500)
 
 #=====for title,label,entry inside frame=======
-title=Label(frame_login,text='Registration',font=('ariel',22),bg='#E7E7E7' ).place(x=180,y=30)
+title=Label(frame_login,text='Registration',font=('Montserrat',22),bg='#E7E7E7' ).place(x=180,y=30)
 descript=Label(frame_login,text='Passengers Registration Area',font=('Montserrat',17),bg='#E7E7E7').place(x=160,y=70)
 Full_name=Label(frame_login,text='Full Name',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=110)
 textbox1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=110)
@@ -45,7 +45,7 @@ Re_type=Label(frame_login,text='Re-type',font=('Montserrat',14),bg='#E7E7E7').pl
 textbox2= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=360)
 Signup_button= Button (win,text='Create Account',bg='#E7E7E7',font=('Montserrat',11)).place(x=140,y=500,width=120,height=40)
 Already=Label(frame_login,text='Already Registered ?',font=('Montserrat',14),bg='#E7E7E7').place(x=130,y=480)
-Regestration_button= Button (win,text='Login',bg='#E7E7E7',font=('Montserrat',11)).place(x=180,y=600,width=120,height=40)
+Regestration_button= Button (win,text='Login',bg='#22B100',font=('Montserrat',11)).place(x=180,y=600,width=120,height=40)
 
 
 #=========defining function============

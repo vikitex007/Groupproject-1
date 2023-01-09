@@ -16,24 +16,24 @@ win.resizable(False,False)
 
 
 #======adding backgroud image=========
-image = Image.open('buss.png')
+image = Image.open('bus.png')
 my_image = ImageTk.PhotoImage(image)
-label = Label(win,image = my_image).place(x=0,y=0,relheight=1,relwidth=1) 
+label = Label(win,image = my_image).place(x=0,y=0) 
 
 
 #====adding Frame Login===
-frame_login = Frame(win,bg='#90a8bd')
-frame_login.place(x=450,y=80,height=360,width=500)
+frame_login = Frame(win,bg='#E7E7E7')
+frame_login.place(x=30,y=60,height=360,width=500)
 
 #=====for title,label,entry inside frame=======
-title=Label(frame_login,text='Login Here',font=('ariel',22,'bold'),bg='#90a8bd' ).place(x=180,y=30)
-descript=Label(frame_login,text='Passengers Login Area',font=('Goudy old style',17,'bold'),bg='#90a8bd').place(x=160,y=70)
-Phone_number=Label(frame_login,text='Number',font=('Goudy old style',14,'bold'),bg='#90a8bd').place(x=50,y=120)
+title=Label(frame_login,text='Login Here',font=('Montserrat',22),bg='#E7E7E7' ).place(x=180,y=30)
+descript=Label(frame_login,text='Passengers Login Area',font=('Montserrat',17),bg='#E7E7E7').place(x=160,y=70)
+Phone_number=Label(frame_login,text='Number',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=120)
 textbox1= Entry(frame_login,font=('times new roman',15)).place(x=50,y=150)
-password=Label(frame_login,text='Password',font=('Goudy old style',14,'bold'),bg='#90a8bd').place(x=50,y=180)
+password=Label(frame_login,text='Password',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=180)
 textbox2= Entry(frame_login,font=('times new roman',15)).place(x=50,y=210)
-forget_button= Button (frame_login,text='Forget password?',bg='#90a8bd',bd=0,font=('times new roman',12)).place(x=50,y=240)
-Login_button= Button (win,text='Login',bg='#90a8bd',font=('times new roman',11)).place(x=650,y=420,width=120,height=40)
+forget_button= Button (frame_login,text='Forget password?',bg='#E7E7E7',bd=0,font=('times new roman',12)).place(x=50,y=240)
+Login_button= Button (win,text='Login',bg='#22B100',font=('times new roman',11)).place(x=150,y=350,width=120,height=40)
 
 
 #=========defining function============
@@ -46,5 +46,3 @@ def login_func():
         messagebox.showinfo('Welcome','succesfully logged in')
 
 win.mainloop()
-
-
