@@ -6,25 +6,7 @@ import sqlite3
 
 
 
-def submit():
-    conn = sqlite3.connect('passenger_book.db')
-    c = conn.cursor()
 
-    c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
-        'Full_name':Full_name1.get(),
-        'Number':Number1.get(),
-        'Address':Address1.get(),
-        'Email':Email1.get(),
-        'password':password1.get(),
-        'retype_password':retype_password1.get()
-
-        
-    })
-
-    messagebox.showinfo("Registration Information","Account created Successfully")
-    
-    conn.commit()
-    conn.close()
 
 #=========================FRONT     END =========================================#
 win = Tk()
@@ -75,7 +57,7 @@ password1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=310)
 retype_password=Label(frame_login,text='Re-type',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=360)
 retype_password1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=360)
 
-Signup_button= Button (win,text='Create Account',bg='#DC143C',command=submit,font=('Montserrat',11)).place(x=950,y=420,width=120,height=40)
+
 
 Already=Label(frame_login,text='Already Registered ?',font=('Montserrat',14),bg='#E7E7E7').place(x=130,y=480)
 
@@ -100,6 +82,27 @@ c = conn.cursor()
 # )""")
 # print('Table created succesfully')
 
+def submit():
+    conn = sqlite3.connect('passenger_book.db')
+    c = conn.cursor()
+
+    c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
+        'Full_name':Full_name1.get(),
+        'Number':Number1.get(),
+        'Address':Address1.get(),
+        'Email':Email1.get(),
+        'password':password1.get(),
+        'retype_password':retype_password1.get()
+
+        
+    })
+
+    messagebox.showinfo("Registration Information","Account created Successfully")
+    
+    conn.commit()
+    conn.close()
+
+Signup_button= Button (win,text='Create Account',bg='#DC143C',command=submit,font=('Montserrat',11)).place(x=950,y=420,width=120,height=40)
 
 
 
