@@ -39,23 +39,29 @@ title=Label(frame_login,text='Registration',font=('Montserrat',22),bg='#E7E7E7' 
 
 descript=Label(frame_login,text='Passengers Registration Area',font=('Montserrat',17),bg='#E7E7E7').place(x=120,y=70)
 
-Full_name=Label(frame_login,text='Full Name',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=110)
-Full_name1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=110)
+Full_name_label=Label(frame_login,text='Full Name',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=110)
+full_name= Entry(frame_login,font=('Montserrat',15))
+full_name.place(x=150,y=110)
 
-Number=Label(frame_login,text='Number',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=160)
-Number1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=160)
+Number_label=Label(frame_login,text='Number',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=160)
+Number= Entry(frame_login,font=('Montserrat',15))
+Number.place(x=150,y=160)
 
-Address=Label(frame_login,text='Address',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=210)
-Address1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=210)
+Address_label=Label(frame_login,text='Address',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=210)
+Address= Entry(frame_login,font=('Montserrat',15))
+Address.place(x=150,y=210)
 
-Email=Label(frame_login,text='E-mail',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=260)
-Email1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=260)
+Email_label=Label(frame_login,text='E-mail',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=260)
+Email= Entry(frame_login,font=('Montserrat',15))
+Email.place(x=150,y=260)
 
-password=Label(frame_login,text='Password',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=310)
-password1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=310)
+password_label=Label(frame_login,text='Password',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=310)
+password= Entry(frame_login,font=('Montserrat',15))
+password.place(x=150,y=310)
 
-retype_password=Label(frame_login,text='Re-type',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=360)
-retype_password1= Entry(frame_login,font=('Montserrat',15)).place(x=150,y=360)
+retype_password_label=Label(frame_login,text='Re-type',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=360)
+retype_password= Entry(frame_login,font=('Montserrat',15))
+retype_password.place(x=150,y=360)
 
 
 
@@ -87,14 +93,12 @@ def submit():
     c = conn.cursor()
 
     c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
-        'Full_name':Full_name1.get(),
-        'Number':Number1.get(),
-        'Address':Address1.get(),
-        'Email':Email1.get(),
-        'password':password1.get(),
-        'retype_password':retype_password1.get()
-
-        
+        'Full_name':full_name.get(),
+        'Number':Number.get(),
+        'Address':Address.get(),
+        'Email':Email.get(),
+        'password':password.get(),
+        'retype_password':retype_password.get()
     })
 
     messagebox.showinfo("Registration Information","Account created Successfully")
@@ -102,8 +106,26 @@ def submit():
     conn.commit()
     conn.close()
 
-Signup_button= Button (win,text='Create Account',bg='#DC143C',command=submit,font=('Montserrat',11)).place(x=950,y=420,width=120,height=40)
+Signup_button= Button (win,text='Register',bg='#DC143C',command=submit,font=('Montserrat',11)).place(x=950,y=420,width=120,height=40)
 
+# def query():
+#     conn = sqlite3.connect('passenger_book.db')
+#     c = conn.cursor()
+
+#     c.execute("SELECT *,oid FROM registration")
+
+#     records = c.fetchall()
+#     print(records)
+
+#     print_record=''
+#     for record in records:
+#         print_record += str(record[0]) + ' ' + str(record[1]) + ' ' + '\t' + str(record[6]) + '\n'
+    
+#     query_label = Label(win, text = print_record)
+#     query_label.grid(row = 8, column=0, columnspan=2)
+
+#     conn.commit()
+#     conn.close()
 
 
 conn.commit()
