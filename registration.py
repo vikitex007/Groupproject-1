@@ -101,7 +101,7 @@ def submit():
         'retype_password':retype_password.get()
     })
 
-    messagebox.showinfo("Registration Information","Account created Successfully")
+    messagebox.showinfo("Registration Information","Information Registered Successfully")
     
     conn.commit()
     conn.close()
