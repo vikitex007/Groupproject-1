@@ -2,6 +2,7 @@
 from tkinter import *
 from PIL import Image,ImageTk
 from tkinter import messagebox
+import tkinter.messagebox as tkMessagebox
 import sqlite3
 
 
@@ -22,11 +23,10 @@ win.iconbitmap('buss.ico')
 win.geometry('1400x600+100+50')
 win.resizable(False,False)
 
-
 #======adding backgroud image=========
-image = Image.open('buss.png')
-my_image = ImageTk.PhotoImage(image)
-label = Label(win,image = my_image).place(x=0,y=0) 
+# image = Image.open('bus.png')
+# my_image = ImageTk.PhotoImage(image)
+# label = Label(win,image = my_image).place(x=-400,y=-300) 
 
 
 
@@ -65,9 +65,16 @@ retype_password.place(x=150,y=360)
 
 
 
+       
+ 
+
+
 Already=Label(frame_login,text='Already Registered ?',font=('Montserrat',14),bg='#E7E7E7').place(x=130,y=480)
 
-Regestration_button= Button (win,text='Login',bg='#22B100',font=('Montserrat',11)).place(x=950,y=520,width=120,height=40)
+def log():
+    import login
+
+Login_button= Button (win,text='Login',bg='#22B100',command=log,font=('Montserrat',11)).place(x=950,y=520,width=120,height=40)
 
 
 
@@ -75,61 +82,81 @@ Regestration_button= Button (win,text='Login',bg='#22B100',font=('Montserrat',11
 
 
 #=====================BACK       END====================
-conn = sqlite3.connect('passenger_book.db')
-c = conn.cursor()
-
-# c.execute("""CREATE TABLE registration(
-#     Full_name text,
-#     Number integer,
-#     Address text,
-#     Email varchar,
-#     password varchar,
-#     retype_password varchar
-# )""")
-# print('Table created succesfully')
-
-def submit():
+def Database():
+    global c,conn
     conn = sqlite3.connect('passenger_book.db')
     c = conn.cursor()
 
-    c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
+    # c.execute("""CREATE TABLE registration(
+    #     Full_name text,
+    #     Number integer,
+    #     Address text,
+    #     Email varchar,
+    #     password varchar,
+    #     retype_password varchar
+    # )""")
+    # print('Table created succesfully')
+    # conn.commit()
+    # conn.close()
+
+
+def submit():
+    Database()
+    conn = sqlite3.connect('passenger_book.db')
+    if full_name.get() =="" or Number.get() =="" or Address.get()=="" or Email.get()=="" or password.get() =="" or retype_password.get()=="":
+        messagebox.showerror("Error",'Please fill all the details')
+    
+    
+    
+    else: 
+        conn = sqlite3.connect('passenger_book.db')
+        c = conn.cursor()
+        c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
         'Full_name':full_name.get(),
         'Number':Number.get(),
         'Address':Address.get(),
         'Email':Email.get(),
         'password':password.get(),
         'retype_password':retype_password.get()
-    })
+        })
+            
 
-    messagebox.showinfo("Registration Information","Information Registered Successfully")
+
+        messagebox.showinfo("Registration Information","Information Registered Successfully")
     
     conn.commit()
     conn.close()
 
 Signup_button= Button (win,text='Register',bg='#DC143C',command=submit,font=('Montserrat',11)).place(x=950,y=420,width=120,height=40)
 
-# def query():
-#     conn = sqlite3.connect('passenger_book.db')
-#     c = conn.cursor()
+#============== function for checking if name or number is already registerd==================
+# def reg():
+#     Database()
+#     if full_name.get() =="" or Number.get() =="" or Address.get()=="" or Email.get()=="" or password.get() =="" or retype_password.get()=="":
+#         messagebox.WARNING("Error",'Please fill all the details') 
+#     else:
+#         c.execute("SELECT * FROM 'registration' WHERE 'Number' = ?",(Number.get(),))
+#         if c.fetchone is not None:
+#             messagebox.ERROR("ERROR","this number is already registered")
+#         else:
+        #      c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
+        # 'Full_name':full_name.get(),
+        # 'Number':Number.get(),
+        # 'Address':Address.get(),
+        # 'Email':Email.get(),
+        # 'password':password.get(),
+        # 'retype_password':retype_password.get()
+        # })
 
-#     c.execute("SELECT *,oid FROM registration")
-
-#     records = c.fetchall()
-#     print(records)
-
-#     print_record=''
-#     for record in records:
-#         print_record += str(record[0]) + ' ' + str(record[1]) + ' ' + '\t' + str(record[6]) + '\n'
+#         messagebox.showinfo("Registration Information","Information Registered Successfully")
     
-#     query_label = Label(win, text = print_record)
-#     query_label.grid(row = 8, column=0, columnspan=2)
-
 #     conn.commit()
 #     conn.close()
 
 
-conn.commit()
-conn.close()
+
+
+
 
 
 win.mainloop()
