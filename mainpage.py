@@ -59,31 +59,43 @@ Signin_btn = tk.Button(root, text='Search Buses',
 Signin_btn.place(x=880, y=90)
 
 Travels=Label(root,text='Travels',font=('times new roman',14),bg='white',fg='black').place(x=120,y=150)
-Radiobutton2 = Radiobutton(root, text="Super Kabeli Yatayat", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="Super Kabeli Yatayat", variable=var, value=3, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=180)
-Radiobutton2 = Radiobutton(root, text="Jam Jam Deluxe", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="Jam Jam Deluxe", variable=var, value=4, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=210)
-Radiobutton2 = Radiobutton(root, text="Safari Yatayat", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="Safari Yatayat", variable=var, value=5, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=240)
-Radiobutton2 = Radiobutton(root, text="Banepa Super Deluxe", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="Banepa Super Deluxe", variable=var, value=6, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=270)
 
 
 Bustype=Label(root,text='Bus Type',font=('times new roman',14),bg='white',fg='black').place(x=120,y=320)
-Radiobutton2 = Radiobutton(root, text="AC", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="AC", variable=var, value=7, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=350)
-Radiobutton2 = Radiobutton(root, text="AC Deluxe", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="AC Deluxe", variable=var, value=8, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=380)
-Radiobutton2 = Radiobutton(root, text="Deluxe", variable=var, value=2, command=lambda: print(var.get()))
+Radiobutton2 = Radiobutton(root, text="Deluxe", variable=var, value=9, command=lambda: print(var.get()))
 Radiobutton2.config(font=(6), bd=0, bg='white', fg='black', activebackground='white', activeforeground='white')
 Radiobutton2.place(x=120, y=410)
 
+frame_back = Frame(root,bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=2)
+frame_back.place(anchor='center', relx=0.5, rely=0.5)
+
+# # Create an object of tkinter ImageTk
+# img = ImageTk.PhotoImage(Image.open("bus.png"))
+
+# # Create a Label Widget to display the text or Image
+# label = Label(frame_back, image = img)
+# label.pack()
+frame_back.place(x=120, y=70)
+frame_back.pack_propagate(False)
+frame_back.configure(height=500,width=900)
 
 
 
