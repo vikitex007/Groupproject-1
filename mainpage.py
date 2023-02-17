@@ -22,6 +22,7 @@ Register_btn = tk.Button(head_frame, text='Register',
                         activebackground='#3AAFA9', activeforeground='white')
 Register_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
+
 Signin_btn = tk.Button(head_frame, text='Log in',
                         font = (14), bd=0, bg='#3AAFA9', fg='white', 
                         activebackground='#3AAFA9', activeforeground='white')
