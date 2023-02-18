@@ -11,7 +11,7 @@ win.title('Bus management system')
 win.iconbitmap('icon.ico')
 
 #======giving geometry of page==============
-win.geometry('1199x600+100+50')
+win.geometry('800x600+100+50')
 win.resizable(False,False)
 
 
