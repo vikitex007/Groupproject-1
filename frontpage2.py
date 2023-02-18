@@ -29,9 +29,9 @@ def toggle_menu():
 
     Vehicle_btn.place(x=20,y=20)
 
-    # placelist = ['Kathmandu','Hetauda','Pokhara']
-    # cmb=ttk.Combobox(root,value=placelist,width=0)
-    # cmb.place(x=20, y=100, width=100)
+    placelist = ['Kathmandu','Hetauda','Pokhara']
+    cmb=ttk.Combobox(root,value=placelist,width=0)
+    cmb.place(x=20, y=100, width=100)
 
 
     Bushire_btn = tk.Button(toggle_menu_fm, text='Bus Ticket',
@@ -68,7 +68,7 @@ Register_btn = tk.Button(head_frame, text='Register',
                         activebackground='#3AAFA9', activeforeground='white')
 Register_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
-Signin_btn = tk.Button(head_frame, text='Sign in',
+Signin_btn = tk.Button(head_frame, text='Log in',
                         font = (14), bd=0, bg='#3AAFA9', fg='white', 
                         activebackground='#3AAFA9', activeforeground='white')
 Signin_btn.pack(side=tk.RIGHT, anchor=tk.W)
@@ -104,10 +104,10 @@ Radiobutton3 = Radiobutton(frame_login, text="Both", variable=var, value=3, comm
 Radiobutton3.config(font=(14), bd=0, bg='#3AAFA9', fg='black', activebackground='#3AAFA9', activeforeground='white')
 Radiobutton3.place(x=200, y=420)
 
-Signin_btn = tk.Button(frame_login, text='Search Buses',
+searchbuses = tk.Button(frame_login, text='Search Buses',
                         font = (14), bd=0, bg='#296d98', fg='white', activebackground='#296d98', activeforeground='white')
-Signin_btn.place(x=200, y=490)
-Signin_btn.pack(side=BOTTOM,ipadx=100,ipady=10)
+searchbuses.place(x=200, y=490)
+searchbuses.pack(side=BOTTOM,ipadx=100,ipady=10)
 
 
 frame_login.pack(side=tk.RIGHT, anchor=tk.W)
