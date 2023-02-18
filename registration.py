@@ -8,7 +8,7 @@ win = Tk()
 win.title('Bus management system')
 
 #======keeping icon=======
-win.iconbitmap('icon.ico')
+# win.iconbitmap('icon.ico')
 
 
 
