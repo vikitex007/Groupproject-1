@@ -41,7 +41,7 @@ def toggle_menu():
 
     Bushire_btn = tk.Button(toggle_menu_fm, text='Bus Ticket',
                             font=(20), bd=0, bg='#3AAFA9', fg='white',
-                            activebackground='#3AAFA9', activeforeground='white')
+                            activebackground='#3AAFA9', activeforeground='#3AAFA9')
 
     Bushire_btn.place(x=20, y=65)
 
@@ -74,6 +74,9 @@ def toggle_menu():
 
 
 head_frame = tk.Frame(root, bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=1)
+
+passenger = Label(head_frame, text='Call Us:9847344775', font=('times new roman', 14), bg='#3AAFA9', fg='black',)
+passenger.place(x=210,y=23,)
 
 toggle_btn = tk.Button(head_frame, text='☰', bg='#3AAFA9', fg='white',
                        font=('Bold', 20), bd=0,

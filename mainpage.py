@@ -12,6 +12,9 @@ root['bg']='white'
 
 head_frame = tk.Frame(root,bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=1)
 
+passenger = Label(head_frame, text='Call Us:9847344775', font=('times new roman', 14), bg='#3AAFA9', fg='black',)
+passenger.place(x=210,y=23,)
+
 title_lb = tk.Label(head_frame, text='Bus Sewa', bg='#3AAFA9', fg='white',
                        font=('Bold', 20))
 
@@ -96,6 +99,7 @@ frame_back.place(anchor='center', relx=0.5, rely=0.5)
 frame_back.place(x=120, y=70)
 frame_back.pack_propagate(False)
 frame_back.configure(height=500,width=900)
+
 
 
 
