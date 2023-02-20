@@ -18,7 +18,7 @@ win.resizable(False,False)
 
 
 #======adding backgroud image=========
-image = Image.open('bus.png')
+image = Image.open('passenger.png')
 my_image = ImageTk.PhotoImage(image)
 label = Label(win,image = my_image).place(x=0,y=0) 
 
