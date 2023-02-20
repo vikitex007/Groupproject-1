@@ -1,0 +1,10 @@
+How to buy tickets?
+
+step 1 :  Go to registration button and register your account by filling up the passenger registration area.
+step 2 :  Login yourself through login page.
+step 3 :  set your leaving and heading destination with day or night shift.
+step 4 :  Click on search buses after setting destination.
+step 5 :  You are now in the main page which shows bus type and group along with amount.
+step 6 :  Select the bus type and click search button.
+step 7 :  after finding suitable bus and time click select button
+step 8 :  

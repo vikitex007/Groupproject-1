@@ -24,9 +24,9 @@ win.geometry('1400x600+100+50')
 win.resizable(False,False)
 
 #======adding backgroud image=========
-# image = Image.open('bus.png')
-# my_image = ImageTk.PhotoImage(image)
-# label = Label(win,image = my_image).place(x=-400,y=-300) 
+image = Image.open('bussss.png')
+my_image = ImageTk.PhotoImage(image)
+label = Label(win,image = my_image).place(x=-200,y=-130) 
 
 
 
@@ -63,6 +63,24 @@ retype_password_label=Label(frame_login,text='Re-type',font=('Montserrat',14),bg
 retype_password= Entry(frame_login,font=('Montserrat',15))
 retype_password.place(x=150,y=360)
 
+# delete=Label(frame_login,text='Delete',font=('Montserrat',14),bg='#E7E7E7').place(x=50,y=390)
+# delete_q= Entry(frame_login,font=('Montserrat',15))
+# delete_q.place(x=150,y=390)
+
+# def delete_func():
+#     conn = sqlite3.connect('passenger_registration.db')
+#     c = conn.cursor()
+
+#     c.execute('DELETE from registration WHERE oid ='+ delete_q.get())
+#     messagebox.showinfo('info','data deleted successfully')
+#     c.execute('SELECT *,oid FROM registration')
+#     record =c.fetchall()
+
+#     print(record)
+#     conn.commit()
+#     conn.close()
+
+# delete_button= Button (win,text='delete',bg='#22B100',command=delete_func,font=('Montserrat',11)).place(x=1000,y=550,width=120,height=40)
 
 
        
@@ -73,6 +91,12 @@ Already=Label(frame_login,text='Already Registered ?',font=('Montserrat',14),bg=
 
 def log():
     import login
+    """
+    This function  calls the login page
+    
+    """
+
+
 
 Login_button= Button (win,text='Login',bg='#22B100',command=log,font=('Montserrat',11)).place(x=950,y=520,width=120,height=40)
 
@@ -83,6 +107,9 @@ Login_button= Button (win,text='Login',bg='#22B100',command=log,font=('Montserra
 
 #=====================BACK       END====================
 def Database():
+    """It is the function defined for database
+    Here Table named registration is created 
+    """
     global c,conn
     conn = sqlite3.connect('passenger_book.db')
     c = conn.cursor()
@@ -99,17 +126,27 @@ def Database():
     # conn.commit()
     # conn.close()
 
-
 def submit():
+    """This function is used in the registration button.
+    If all the entry are not filled then error will shown.
+    Elif password and retype password didnt matched then the error will be shown.
+    And if all the data are correct then data will be saved in database 
+    """
+
+    
+    
     Database()
     conn = sqlite3.connect('passenger_book.db')
     if full_name.get() =="" or Number.get() =="" or Address.get()=="" or Email.get()=="" or password.get() =="" or retype_password.get()=="":
         messagebox.showerror("Error",'Please fill all the details')
     
+    elif password.get() != retype_password.get():
+        messagebox.showerror('Error','password not matched')
+        
     
-    
+
     else: 
-        conn = sqlite3.connect('passenger_book.db')
+        conn = sqlite3.connect('passenger_registration.db')
         c = conn.cursor()
         c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
         'Full_name':full_name.get(),
@@ -127,31 +164,10 @@ def submit():
     conn.commit()
     conn.close()
 
-Signup_button= Button (win,text='Register',bg='#DC143C',command=submit,font=('Montserrat',11)).place(x=950,y=420,width=120,height=40)
+Signup_button= Button (win,text='Register',bg='#DC143C',command=submit,font=('Montserrat',11))
+Signup_button.place(x=950,y=420,width=120,height=40)
 
-#============== function for checking if name or number is already registerd==================
-# def reg():
-#     Database()
-#     if full_name.get() =="" or Number.get() =="" or Address.get()=="" or Email.get()=="" or password.get() =="" or retype_password.get()=="":
-#         messagebox.WARNING("Error",'Please fill all the details') 
-#     else:
-#         c.execute("SELECT * FROM 'registration' WHERE 'Number' = ?",(Number.get(),))
-#         if c.fetchone is not None:
-#             messagebox.ERROR("ERROR","this number is already registered")
-#         else:
-        #      c.execute("INSERT INTO registration VALUES(:Full_name, :Number, :Address, :Email, :password, :retype_password)",{
-        # 'Full_name':full_name.get(),
-        # 'Number':Number.get(),
-        # 'Address':Address.get(),
-        # 'Email':Email.get(),
-        # 'password':password.get(),
-        # 'retype_password':retype_password.get()
-        # })
 
-#         messagebox.showinfo("Registration Information","Information Registered Successfully")
-    
-#     conn.commit()
-#     conn.close()
 
 
 
