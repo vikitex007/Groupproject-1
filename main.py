@@ -6,12 +6,19 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from pathlib import Path
 from tkinter import messagebox
 import sqlite3
+from tkinter import *
+from PIL import Image,ImageTk
+from tkinter import messagebox
+import tkinter.messagebox as tkMessagebox
+import sqlite3
+
 
 
 
 root = tk.Tk()
 # root.geometry('900x500')
 root.title('Bus Sewa')
+
 
 
 
@@ -34,10 +41,6 @@ def toggle_menu():
                             activebackground='#3AAFA9', activeforeground='white')
 
     Vehicle_btn.place(x=20, y=20)
-
-    # placelist = ['Kathmandu','Hetauda','Pokhara']
-    # cmb=ttk.Combobox(root,value=placelist,width=0)
-    # cmb.place(x=20, y=100, width=100)
 
     def ticket():
         import ticket
@@ -105,11 +108,11 @@ head_frame.configure(height=70)
 
 frame_login = Frame(root, bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=2)
 
-leaving = Label(frame_login, text='Leaving From', font=('times new roman', 25), bg='#3AAFA9', fg='white').place(x=40,y=40)
+leaving = Label(frame_login, text='From', font=('times new roman', 25), bg='#3AAFA9', fg='white').place(x=40,y=40)
 leaving_entry = Entry(frame_login, font=('times new roman', 25))
 leaving_entry.place(x=40, y=90)
 
-going = Label(frame_login, text='Going Destination', font=('times new roman', 25), bg='#3AAFA9', fg='white').place(x=40, y=150)
+going = Label(frame_login, text='To', font=('times new roman', 25), bg='#3AAFA9', fg='white').place(x=40, y=150)
 going_entry = Entry(frame_login, font=('times new roman', 25))
 going_entry.place(x=40, y=200)
 
@@ -123,9 +126,6 @@ Radiobutton1 = Radiobutton(frame_login, text="Day", variable=var, value=1, comma
 Radiobutton1.config(font=(14), bd=0, bg='#3AAFA9', fg='black', activebackground='#3AAFA9', activeforeground='white')
 Radiobutton1.place(x=50, y=420)
 
-# Radiobutton2 = Radiobutton(frame_login, text="", variable=var, value=2, command=lambda: print(var.get()))
-# Radiobutton2.config(font=(14), bd=0, bg='#3AAFA9', fg='black', activebackground='#3AAFA9', activeforeground='white')
-# Radiobutton2.place(x=120, y=420)
 
 Radiobutton3 = Radiobutton(frame_login, text="Night", variable=var, value=3, command=lambda: print(var.get()))
 Radiobutton3.config(font=(14), bd=0, bg='#3AAFA9', fg='black', activebackground='#3AAFA9', activeforeground='white')
@@ -138,6 +138,7 @@ frame_login.configure(height=600, width=500)
 
 frame_back = Frame(root, bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=2)
 frame_back.place(anchor='center', relx=0.5, rely=0.5)
+
 
 # Create an object of tkinter ImageTk
 img = ImageTk.PhotoImage(Image.open("bussss.png"))
@@ -182,16 +183,21 @@ my_time()
 # conn.close()
 
 def add():
-    conn = sqlite3.connect('main.db')
-    c = conn.cursor()
-    c.execute("INSERT INTO mainn VALUES(:leave, :going, :travel,:radio)",{
+    if leaving_entry.get()=='' or going_entry.get()=='' or travel_entry.get()=='' or var.get()=='':
+        messagebox.showerror('error','Please fill all details')
+        
+
+    else:
+        conn = sqlite3.connect('main.db')
+        c = conn.cursor()
+        c.execute("INSERT INTO mainn VALUES(:leave, :going, :travel,:radio)",{
         'leave':leaving_entry.get(),
         'going':going_entry.get(),
         'travel':travel_entry.get(),
         'radio':var.get()
         })
-    conn.commit()
-    conn.close()
+        conn.commit()
+        conn.close()
     # messagebox.showinfo('info','your  data has been saved')
 
 def main():

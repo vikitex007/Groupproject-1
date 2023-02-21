@@ -26,11 +26,15 @@ win.resizable(False,False)
 
 #=====================defining login function=============================================
 
-
+image = Image.open('bussss.png')
+my_image = ImageTk.PhotoImage(image)
+label = Label(win,image = my_image).place(x=0,y=0) 
     
 #====adding Frame Login===#
 frame_login = Frame(win,bg='white')
-frame_login.place(x=600,y=60,height=450,width=400)
+frame_login.place(x=100,y=60,height=450,width=400)
+
+
 
 #=====for title,label,entry inside frame=======#
 # title=Label(frame_login,text='Hello',font=('Alegreya',22,'bold'),bg='white' ).place(x=125,y=30)

@@ -15,13 +15,13 @@ root.geometry('1500x760')
 root.title('Bus Sewa')
 
 head_frame = tk.Frame(root, bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=1)
-passenger = Label(head_frame, text='Call Us:9847344775', font=('times new roman', 14), bg='#3AAFA9', fg='black',)
+passenger = Label(head_frame, text='Call Us:9847344775', font=('times new roman', 14), bg='#3AAFA9', fg='white',)
 passenger.place(x=40,y=20,)
 def reg():
     import registration
 
 Register_btn = tk.Button(head_frame, text='Register',command=reg,
-                         font=(14), bd=0, bg='#3AAFA9', fg='black',
+                         font=(14), bd=0, bg='#3AAFA9', fg='white',
                          activebackground='#3AAFA9', activeforeground='white')
 Register_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
@@ -30,13 +30,13 @@ def login():
         
         
 Signin_btn = tk.Button(head_frame, text='Login',command=login,
-                       font=(14), bd=0, bg='#3AAFA9', fg='black',
+                       font=(14), bd=0, bg='#3AAFA9', fg='white',
                        activebackground='#3AAFA9', activeforeground='white')
 Signin_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
 
 howto_btn = tk.Button(head_frame, text='How to buy ticket?',
-                      font=(14), bd=0, bg='#3AAFA9', fg='black',
+                      font=(14), bd=0, bg='#3AAFA9', fg='white',
                       activebackground='#3AAFA9', activeforeground='white')
 howto_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
@@ -51,7 +51,7 @@ frame_back.place(anchor='center', relx=0.5, rely=0.5)
 passenger = Label(frame_back, text='Passenger Details', font=('times new roman', 20), bg='white', fg='black').place(x=40,
                                                                                                                 y=40)
 
-mandatory = Label(frame_back, text='All fields are mandatory', font=('times new roman', 11), bg='white', fg='black').place(x=60,
+mandatory = Label(frame_back, text='Fill all the details for booking ticket', font=('times new roman', 11), bg='white', fg='black').place(x=60,
                                                                                                                 y=80)
 nameof = Label(frame_back, text='Name of Passenger', font=('times new roman', 14), bg='white', fg='black').place(x=40,
                                                                                                                 y=120)
@@ -88,6 +88,7 @@ Radiobutton2.place(x=580, y=270)
 Radiobutton3 = Radiobutton(frame_back, text="iPay", variable=var, value=3, command=lambda: print(var.get()))
 Radiobutton3.config(font=(14), bd=0, bg='white', fg='black', activebackground='white', activeforeground='black')
 Radiobutton3.place(x=420, y=320)
+Radiobutton3.deselect()
 
 Radiobutton4 = Radiobutton(frame_back, text="Fone Pay", variable=var, value=4, command=lambda: print(var.get()))
 Radiobutton4.config(font=(14), bd=0, bg='white', fg='black', activebackground='white', activeforeground='black')
@@ -134,6 +135,8 @@ def add ():
             
         })
         messagebox.showinfo('Congratulations','Your ticket has been booked')
+        conn.commit()
+        conn.close()
 
 conformation = tk.Button(frame_back, text='Confirmation',command=add,font=(14), bd=0, bg='#296d98', fg='white', activebackground='#296d98', activeforeground='white',padx=100, pady=10)
 conformation.place(x=320, y=500)

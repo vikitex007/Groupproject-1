@@ -13,13 +13,13 @@ root.geometry('1500x760')
 root.title('Bus Sewa')
 
 head_frame = tk.Frame(root, bg='#3AAFA9', highlightbackground='WHITE', highlightthickness=1)
-passenger = Label(head_frame, text='Call Us:9847344775', font=('times new roman', 14), bg='#3AAFA9', fg='black',)
+passenger = Label(head_frame, text='Call Us:9847344775', font=('times new roman', 14), bg='#3AAFA9', fg='white',)
 passenger.place(x=40,y=20,)
 def reg():
     import registration
 
 Register_btn = tk.Button(head_frame, text='Register',command=reg,
-                         font=(14), bd=0, bg='#3AAFA9', fg='black',
+                         font=(14), bd=0, bg='#3AAFA9', fg='white',
                          activebackground='#3AAFA9', activeforeground='white')
 Register_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
@@ -28,13 +28,13 @@ def login():
         
         
 Signin_btn = tk.Button(head_frame, text='Login',command=login,
-                       font=(14), bd=0, bg='#3AAFA9', fg='black',
+                       font=(14), bd=0, bg='#3AAFA9', fg='white',
                        activebackground='#3AAFA9', activeforeground='white')
 Signin_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
 
 howto_btn = tk.Button(head_frame, text='How to buy ticket?',
-                      font=(14), bd=0, bg='#3AAFA9', fg='black',
+                      font=(14), bd=0, bg='#3AAFA9', fg='white',
                       activebackground='#3AAFA9', activeforeground='white')
 howto_btn.pack(side=tk.RIGHT, anchor=tk.W)
 
